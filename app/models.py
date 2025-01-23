@@ -16,7 +16,7 @@ class User(Base):
     hashed_password = Column(String, nullable=False)
     # role = Column(PyEnum(Role), default=Role.MEMBER)
 
-    borrows = relationship("Borrow", back_populates="users")
+    borrows = relationship("Borrow", back_populates="user")
 
 class Book(Base):
     __tablename__ = "books"
@@ -25,7 +25,7 @@ class Book(Base):
     author = Column(String, nullable=False)
     quantity = Column(Integer, default=0)
 
-    borrows = relationship("Borrow", back_populates="books")
+    borrows = relationship("Borrow", back_populates="book")
 
 class Borrow(Base):
     __tablename__ = "borrows"

@@ -16,6 +16,9 @@ class UserCreate(UserBase):
 
 class UserResponse(UserBase):
     id : int
+class UserLogin(BaseModel):
+    email : str
+    password : str
 
 
 #BOOKS
@@ -37,5 +40,5 @@ class BorrowBase(BaseModel):
 
 class BorrowResponse(BorrowBase):
     id : int
-    borrowed_at = datetime
-    returned_at = Optional[datetime] = None
+    borrowed_at : datetime
+    returned_at : Optional[datetime]
