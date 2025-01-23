@@ -11,9 +11,10 @@ class Role(PyEnum):
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, nullable=False)
     email = Column(String, unique=True, nullable=False)
     hashed_password = Column(String, nullable=False)
-    role = Column(PyEnum(Role), default=Role.MEMBER)
+    # role = Column(PyEnum(Role), default=Role.MEMBER)
 
     borrows = relationship("Borrow", back_populates="users")
 
@@ -36,3 +37,4 @@ class Borrow(Base):
 
     book = relationship("Book", back_populates="borrows")
     user = relationship("User", back_populates="borrows")
+
