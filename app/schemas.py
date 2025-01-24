@@ -43,7 +43,9 @@ class  BookResponse(BookBase):
 class BorrowBase(BaseModel):
     book_id : int
 
-class BorrowResponse(BorrowBase):
+class BorrowResponse(BaseModel):
     id : int
+    book_id: int
+    user_id : int
     borrowed_at : datetime
     returned_at : Optional[datetime]
