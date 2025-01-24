@@ -52,7 +52,7 @@ def get_user(
 #GET ALL USERS
 
 @router.get("/", response_model=list[schemas.UserResponse])
-def get_all_user(db:Session = Depends(get_db), current_user : User = Depends(auth.get_admin_user)):
+def get_all_user(db:Session = Depends(get_db), current_user : User = Depends(auth.get_admin_user )):
     return db.query(User).all()
 
 #UPDATE USER ROLE

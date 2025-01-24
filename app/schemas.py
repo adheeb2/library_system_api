@@ -30,11 +30,12 @@ class BookBase(BaseModel):
     title : str
     author : str
     quantity : int
+    isbn : str 
 
 class BookCreate(BookBase):
     pass
 
-class BookRespoonse(BookBase):
+class  BookResponse(BookBase):
     id : int
 
 

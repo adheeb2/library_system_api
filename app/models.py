@@ -22,7 +22,8 @@ class Book(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
     author = Column(String, nullable=False)
-    quantity = Column(Integer, default=0)
+    quantity = Column(Integer, default=1)
+    isbn = Column(String, unique=True, index=True)
 
     borrows = relationship("Borrow", back_populates="book")
 
