@@ -9,16 +9,20 @@ from app.models import Role
 class UserBase(BaseModel):
     username : str
     email :str
-    role: Optional[Role] = None
+    role: Optional[str] 
 
 class UserCreate(UserBase):
     password : str
 
 class UserResponse(UserBase):
     id : int
+    
 class UserLogin(BaseModel):
     email : str
     password : str
+
+class RoleUpdate(BaseModel):
+    role: str
 
 
 #BOOKS

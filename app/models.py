@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import VARCHAR, Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from app.database import Base
 from enum import Enum as PyEnum
@@ -13,9 +13,8 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, nullable=False)
     email = Column(String, unique=True, nullable=False)
-    hashed_password = Column(String, nullable=False)
-    # role = Column(PyEnum(Role), default=Role.MEMBER)
-
+    hashed_password = Column(String, nullable=False)   
+    role = Column(VARCHAR, default=Role.MEMBER.value)
     borrows = relationship("Borrow", back_populates="user")
 
 class Book(Base):
